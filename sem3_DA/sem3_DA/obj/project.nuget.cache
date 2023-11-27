@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "hELuHdmz/eYxHDyFsGj2iro4B4cE+5tkvi3GsoQQAn6YXddOxK1lNPSWOcEbP4MRT5AxF4qrQlUreVOfcdsFHw==",
+  "success": true,
+  "projectFilePath": "D:\\T2207E\\git\\Test_DMAWS\\SEM3_T2207E_DMAWS_Test\\Duclv\\sem3_DA\\sem3_DA\\sem3_DA.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lam Duc\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.11\\microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
+    "C:\\Users\\Lam Duc\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Lam Duc\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\Lam Duc\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\Lam Duc\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\Lam Duc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\Lam Duc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
