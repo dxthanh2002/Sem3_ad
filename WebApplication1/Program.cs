@@ -11,7 +11,7 @@ builder.Services.AddDbContext<FashionContext>(options => options.UseSqlServer(bu
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                  .AddCookie(options =>
                  {
-                     options.LoginPath = "/Login";
+                     options.LoginPath = "/Account/OnPostLogin";
                  });
 
 var app = builder.Build();
