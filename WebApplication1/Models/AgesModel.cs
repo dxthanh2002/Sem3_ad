@@ -8,7 +8,7 @@ namespace WebApplication1.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int agesid { get; set; }
-        public string ages { get; set; }
+        public string agenumber { get; set; }
         
     }
 }

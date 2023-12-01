@@ -29,7 +29,7 @@ namespace WebApplication1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("agesid"));
 
-                    b.Property<string>("ages")
+                    b.Property<string>("agenumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
