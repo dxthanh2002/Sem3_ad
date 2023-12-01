@@ -16,7 +16,7 @@ namespace WebApplication1.Migrations
                 {
                     agesid = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ages = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    agenumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

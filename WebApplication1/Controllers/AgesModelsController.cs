@@ -55,7 +55,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("agesid,ages")] AgesModel agesModel)
+        public async Task<IActionResult> Create([Bind("agesid,agenumber")] AgesModel agesModel)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("agesid,ages")] AgesModel agesModel)
+        public async Task<IActionResult> Edit(int id, [Bind("agesid,agenumber")] AgesModel agesModel)
         {
             if (id != agesModel.agesid)
             {

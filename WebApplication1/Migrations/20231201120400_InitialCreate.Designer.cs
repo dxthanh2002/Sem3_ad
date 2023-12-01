@@ -11,7 +11,7 @@ using WebApplication1.Models;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(FashionContext))]
-    [Migration("20231130152314_InitialCreate")]
+    [Migration("20231201120400_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -32,7 +32,7 @@ namespace WebApplication1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("agesid"));
 
-                    b.Property<string>("ages")
+                    b.Property<string>("agenumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
