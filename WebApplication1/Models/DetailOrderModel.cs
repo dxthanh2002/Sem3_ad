@@ -11,9 +11,14 @@ namespace WebApplication1.Models
         public int DetailId { get; set; }
 
         [Required]
+        [ForeignKey("Product")]
         public int ProductId { get; set; }
+        public virtual ProductModel Product { get; set; }
         [Required]
+        [ForeignKey("Order")]
         public int OrderId { get; set; }
+        public virtual OrderModel Order { get; set; }
+        
 
         [DefaultValue(0.0f)]
         [Required]

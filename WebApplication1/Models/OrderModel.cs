@@ -9,8 +9,11 @@ namespace WebApplication1.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId { get; set; }
         [Required]
+        [ForeignKey("User")]
         public int UserId { get; set; }
-        [Column(TypeName = "nvarchar(1024)")]
+        public virtual UserModel User { get; set; }
+        
+        
         public string Description { get; set; }
     }
 }

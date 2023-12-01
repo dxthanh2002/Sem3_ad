@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
+IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json")
+           .Build();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<FashionContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

@@ -8,14 +8,16 @@ namespace WebApplication1.Models
     public class UserModel
     {
         [Key]
-        [Column(TypeName = "nvarchar(30)")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int UserId { get; set; }
+
         [Required]
         public string Username { get; set; }
 
-        [Column(TypeName = "nvarchar(512)")]
+ 
         [Required]
         public string Password { get; set; }
-        [Column(TypeName = "nvarchar(128)")]
+
         [Required]
         public string Email { get; set; }
 
