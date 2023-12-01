@@ -21,5 +21,7 @@ namespace WebApplication1.Models
         public DbSet<DetailOrderModel> DetailOrders { get; set; }
         public DbSet<OrderModel> Orders { get; set; }
         public DbSet<WebApplication1.Models.seasonsModel> seasonsModel { get; set; } = default!;
+        public DbSet<WebApplication1.Models.AgesModel> AgesModel { get; set; } = default!;
+        public DbSet<WebApplication1.Models.GendersModel> GendersModel { get; set; } = default!;
     }
 }
