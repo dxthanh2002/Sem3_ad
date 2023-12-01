@@ -9,9 +9,9 @@ namespace WebApplication1.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductId { get; set; }
-        [Column(TypeName = "nvarchar(512)")]
+       
         public string Name { get; set; }
-        [Column(TypeName = "nvarchar(512)")]
+        
         public string Images { get; set; }
 
         [DefaultValue(0.0f)]
@@ -21,17 +21,21 @@ namespace WebApplication1.Models
         [DefaultValue(0.0)]
         [Required]
         public int Quantity { get; set; }
+        [ForeignKey("Seasons")]
 
-        [Column(TypeName = "nvarchar(512)")]
-
-        public string Seasons { get; set; }
-        [Column(TypeName = "nvarchar(512)")]
-
-        public string Genders { get; set; }
+       
+        public int seasonid { get; set; }
+        public virtual seasonsModel Seasons { get; set; }
+        
+       
+        [ForeignKey("Genders")]
+        public int GendersId { get; set; }
+        public virtual GendersModel Genders { get; set; }
         [DefaultValue(0.0)]
         [Required]
-
+        [ForeignKey("Ages")]
         public int Ages { get; set; }
+        public virtual AgesModel Age { get; set; }
 
         [DefaultValue(0.0f)]
         [Required]

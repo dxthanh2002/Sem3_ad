@@ -9,57 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApplication1
 build_property.RootNamespace = WebApplication1
-build_property.ProjectDir = D:\T2207E\git\Sem3_ad\WebApplication1\
+build_property.ProjectDir = D:\ASP.net\Sem3_ad\WebApplication1\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\T2207E\git\Sem3_ad\WebApplication1
+build_property.MSBuildProjectDirectory = D:\ASP.net\Sem3_ad\WebApplication1
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/Account/Create.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Account/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/Account/Delete.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Account/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/Account/Details.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Account/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/Account/Edit.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Account/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/Account/Index.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Account/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/Home/Index.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/Home/Privacy.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/Shared/Error.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/seasonsModels/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2Vhc29uc01vZGVsc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/seasonsModels/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2Vhc29uc01vZGVsc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/seasonsModels/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2Vhc29uc01vZGVsc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/seasonsModels/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2Vhc29uc01vZGVsc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/seasonsModels/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2Vhc29uc01vZGVsc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/_ViewImports.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/_ViewStart.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T2207E/git/Sem3_ad/WebApplication1/Views/Shared/_Layout.cshtml]
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bddmc6yalx
