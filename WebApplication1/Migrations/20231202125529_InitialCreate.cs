@@ -11,42 +11,42 @@ namespace WebApplication1.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "AgesModel",
+                name: "AgesModels",
                 columns: table => new
                 {
                     agesid = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    agenumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    agenumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AgesModel", x => x.agesid);
+                    table.PrimaryKey("PK_AgesModels", x => x.agesid);
                 });
 
             migrationBuilder.CreateTable(
-                name: "GendersModel",
+                name: "GendersModels",
                 columns: table => new
                 {
                     Genderid = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    gender = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Gender = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GendersModel", x => x.Genderid);
+                    table.PrimaryKey("PK_GendersModels", x => x.Genderid);
                 });
 
             migrationBuilder.CreateTable(
-                name: "seasonsModel",
+                name: "seasonsModels",
                 columns: table => new
                 {
-                    seasonId = table.Column<int>(type: "int", nullable: false)
+                    Seasonid = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Season = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_seasonsModel", x => x.seasonId);
+                    table.PrimaryKey("PK_seasonsModels", x => x.Seasonid);
                 });
 
             migrationBuilder.CreateTable(
@@ -77,55 +77,55 @@ namespace WebApplication1.Migrations
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     seasonid = table.Column<int>(type: "int", nullable: false),
                     GendersId = table.Column<int>(type: "int", nullable: false),
-                    Ages = table.Column<int>(type: "int", nullable: false),
-                    agesid = table.Column<int>(type: "int", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     RewardPoint = table.Column<float>(type: "real", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.ProductId);
                     table.ForeignKey(
-                        name: "FK_Products_AgesModel_agesid",
-                        column: x => x.agesid,
-                        principalTable: "AgesModel",
+                        name: "FK_Products_AgesModels_Age",
+                        column: x => x.Age,
+                        principalTable: "AgesModels",
                         principalColumn: "agesid",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_GendersModel_GendersId",
+                        name: "FK_Products_GendersModels_GendersId",
                         column: x => x.GendersId,
-                        principalTable: "GendersModel",
+                        principalTable: "GendersModels",
                         principalColumn: "Genderid",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_seasonsModel_seasonid",
+                        name: "FK_Products_seasonsModels_seasonid",
                         column: x => x.seasonid,
-                        principalTable: "seasonsModel",
-                        principalColumn: "seasonId",
+                        principalTable: "seasonsModels",
+                        principalColumn: "Seasonid",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Order",
+                name: "Orders",
                 columns: table => new
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
+                    UsersUserId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Order", x => x.OrderId);
+                    table.PrimaryKey("PK_Orders", x => x.OrderId);
                     table.ForeignKey(
-                        name: "FK_Order_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Orders_Users_UsersUserId",
+                        column: x => x.UsersUserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "DetailOrder",
+                name: "DetailOrders",
                 columns: table => new
                 {
                     DetailId = table.Column<int>(type: "int", nullable: false)
@@ -137,15 +137,15 @@ namespace WebApplication1.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DetailOrder", x => x.DetailId);
+                    table.PrimaryKey("PK_DetailOrders", x => x.DetailId);
                     table.ForeignKey(
-                        name: "FK_DetailOrder_Order_OrderId",
+                        name: "FK_DetailOrders_Orders_OrderId",
                         column: x => x.OrderId,
-                        principalTable: "Order",
+                        principalTable: "Orders",
                         principalColumn: "OrderId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DetailOrder_Products_ProductId",
+                        name: "FK_DetailOrders_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ProductId",
@@ -153,24 +153,24 @@ namespace WebApplication1.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_DetailOrder_OrderId",
-                table: "DetailOrder",
+                name: "IX_DetailOrders_OrderId",
+                table: "DetailOrders",
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DetailOrder_ProductId",
-                table: "DetailOrder",
+                name: "IX_DetailOrders_ProductId",
+                table: "DetailOrders",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_UserId",
-                table: "Order",
-                column: "UserId");
+                name: "IX_Orders_UsersUserId",
+                table: "Orders",
+                column: "UsersUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_agesid",
+                name: "IX_Products_Age",
                 table: "Products",
-                column: "agesid");
+                column: "Age");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_GendersId",
@@ -187,10 +187,10 @@ namespace WebApplication1.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "DetailOrder");
+                name: "DetailOrders");
 
             migrationBuilder.DropTable(
-                name: "Order");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Products");
@@ -199,13 +199,13 @@ namespace WebApplication1.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "AgesModel");
+                name: "AgesModels");
 
             migrationBuilder.DropTable(
-                name: "GendersModel");
+                name: "GendersModels");
 
             migrationBuilder.DropTable(
-                name: "seasonsModel");
+                name: "seasonsModels");
         }
     }
 }

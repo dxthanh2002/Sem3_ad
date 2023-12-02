@@ -11,9 +11,7 @@ namespace WebApplication1.Models
         [Required]
         [ForeignKey("User")]
         public int UserId { get; set; }
-        public virtual UserModel User { get; set; }
-        
-        
+        public virtual UserModel Users { get; set; }
         public string Description { get; set; }
     }
 }

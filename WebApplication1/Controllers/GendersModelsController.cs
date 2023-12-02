@@ -21,20 +21,20 @@ namespace WebApplication1.Controllers
         // GET: GendersModels
         public async Task<IActionResult> Index()
         {
-              return _context.GendersModel != null ? 
-                          View(await _context.GendersModel.ToListAsync()) :
-                          Problem("Entity set 'FashionContext.GendersModel'  is null.");
+              return _context.GendersModels != null ? 
+                          View(await _context.GendersModels.ToListAsync()) :
+                          Problem("Entity set 'FashionContext.GendersModels'  is null.");
         }
 
         // GET: GendersModels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.GendersModel == null)
+            if (id == null || _context.GendersModels == null)
             {
                 return NotFound();
             }
 
-            var gendersModel = await _context.GendersModel
+            var gendersModel = await _context.GendersModels
                 .FirstOrDefaultAsync(m => m.Genderid == id);
             if (gendersModel == null)
             {
@@ -55,7 +55,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Genderid,gender")] GendersModel gendersModel)
+        public async Task<IActionResult> Create([Bind("Genderid,Gender")] GendersModel gendersModel)
         {
             if (ModelState.IsValid)
             {
@@ -69,12 +69,12 @@ namespace WebApplication1.Controllers
         // GET: GendersModels/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.GendersModel == null)
+            if (id == null || _context.GendersModels == null)
             {
                 return NotFound();
             }
 
-            var gendersModel = await _context.GendersModel.FindAsync(id);
+            var gendersModel = await _context.GendersModels.FindAsync(id);
             if (gendersModel == null)
             {
                 return NotFound();
@@ -87,7 +87,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Genderid,gender")] GendersModel gendersModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Genderid,Gender")] GendersModel gendersModel)
         {
             if (id != gendersModel.Genderid)
             {
@@ -120,12 +120,12 @@ namespace WebApplication1.Controllers
         // GET: GendersModels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.GendersModel == null)
+            if (id == null || _context.GendersModels == null)
             {
                 return NotFound();
             }
 
-            var gendersModel = await _context.GendersModel
+            var gendersModel = await _context.GendersModels
                 .FirstOrDefaultAsync(m => m.Genderid == id);
             if (gendersModel == null)
             {
@@ -140,14 +140,14 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.GendersModel == null)
+            if (_context.GendersModels == null)
             {
-                return Problem("Entity set 'FashionContext.GendersModel'  is null.");
+                return Problem("Entity set 'FashionContext.GendersModels'  is null.");
             }
-            var gendersModel = await _context.GendersModel.FindAsync(id);
+            var gendersModel = await _context.GendersModels.FindAsync(id);
             if (gendersModel != null)
             {
-                _context.GendersModel.Remove(gendersModel);
+                _context.GendersModels.Remove(gendersModel);
             }
             
             await _context.SaveChangesAsync();
@@ -156,7 +156,7 @@ namespace WebApplication1.Controllers
 
         private bool GendersModelExists(int id)
         {
-          return (_context.GendersModel?.Any(e => e.Genderid == id)).GetValueOrDefault();
+          return (_context.GendersModels?.Any(e => e.Genderid == id)).GetValueOrDefault();
         }
     }
 }

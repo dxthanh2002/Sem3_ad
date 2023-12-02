@@ -9,87 +9,87 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class seasonsModelsController : Controller
+    public class SeasonModelsController : Controller
     {
         private readonly FashionContext _context;
 
-        public seasonsModelsController(FashionContext context)
+        public SeasonModelsController(FashionContext context)
         {
             _context = context;
         }
 
-        // GET: seasonsModels
+        // GET: SeasonModels
         public async Task<IActionResult> Index()
         {
-              return _context.seasonsModel != null ? 
-                          View(await _context.seasonsModel.ToListAsync()) :
-                          Problem("Entity set 'FashionContext.seasonsModel'  is null.");
+              return _context.seasonsModels != null ? 
+                          View(await _context.seasonsModels.ToListAsync()) :
+                          Problem("Entity set 'FashionContext.seasonsModels'  is null.");
         }
 
-        // GET: seasonsModels/Details/5
+        // GET: SeasonModels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.seasonsModel == null)
+            if (id == null || _context.seasonsModels == null)
             {
                 return NotFound();
             }
 
-            var seasonsModel = await _context.seasonsModel
-                .FirstOrDefaultAsync(m => m.seasonId == id);
-            if (seasonsModel == null)
+            var seasonModel = await _context.seasonsModels
+                .FirstOrDefaultAsync(m => m.Seasonid == id);
+            if (seasonModel == null)
             {
                 return NotFound();
             }
 
-            return View(seasonsModel);
+            return View(seasonModel);
         }
 
-        // GET: seasonsModels/Create
+        // GET: SeasonModels/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: seasonsModels/Create
+        // POST: SeasonModels/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("seasonId,Name")] seasonsModel seasonsModel)
+        public async Task<IActionResult> Create([Bind("Seasonid,Season")] SeasonModel seasonModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(seasonsModel);
+                _context.Add(seasonModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(seasonsModel);
+            return View(seasonModel);
         }
 
-        // GET: seasonsModels/Edit/5
+        // GET: SeasonModels/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.seasonsModel == null)
+            if (id == null || _context.seasonsModels == null)
             {
                 return NotFound();
             }
 
-            var seasonsModel = await _context.seasonsModel.FindAsync(id);
-            if (seasonsModel == null)
+            var seasonModel = await _context.seasonsModels.FindAsync(id);
+            if (seasonModel == null)
             {
                 return NotFound();
             }
-            return View(seasonsModel);
+            return View(seasonModel);
         }
 
-        // POST: seasonsModels/Edit/5
+        // POST: SeasonModels/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("seasonId,Name")] seasonsModel seasonsModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Seasonid,Season")] SeasonModel seasonModel)
         {
-            if (id != seasonsModel.seasonId)
+            if (id != seasonModel.Seasonid)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace WebApplication1.Controllers
             {
                 try
                 {
-                    _context.Update(seasonsModel);
+                    _context.Update(seasonModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!seasonsModelExists(seasonsModel.seasonId))
+                    if (!SeasonModelExists(seasonModel.Seasonid))
                     {
                         return NotFound();
                     }
@@ -114,49 +114,49 @@ namespace WebApplication1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(seasonsModel);
+            return View(seasonModel);
         }
 
-        // GET: seasonsModels/Delete/5
+        // GET: SeasonModels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.seasonsModel == null)
+            if (id == null || _context.seasonsModels == null)
             {
                 return NotFound();
             }
 
-            var seasonsModel = await _context.seasonsModel
-                .FirstOrDefaultAsync(m => m.seasonId == id);
-            if (seasonsModel == null)
+            var seasonModel = await _context.seasonsModels
+                .FirstOrDefaultAsync(m => m.Seasonid == id);
+            if (seasonModel == null)
             {
                 return NotFound();
             }
 
-            return View(seasonsModel);
+            return View(seasonModel);
         }
 
-        // POST: seasonsModels/Delete/5
+        // POST: SeasonModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.seasonsModel == null)
+            if (_context.seasonsModels == null)
             {
-                return Problem("Entity set 'FashionContext.seasonsModel'  is null.");
+                return Problem("Entity set 'FashionContext.seasonsModels'  is null.");
             }
-            var seasonsModel = await _context.seasonsModel.FindAsync(id);
-            if (seasonsModel != null)
+            var seasonModel = await _context.seasonsModels.FindAsync(id);
+            if (seasonModel != null)
             {
-                _context.seasonsModel.Remove(seasonsModel);
+                _context.seasonsModels.Remove(seasonModel);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool seasonsModelExists(int id)
+        private bool SeasonModelExists(int id)
         {
-          return (_context.seasonsModel?.Any(e => e.seasonId == id)).GetValueOrDefault();
+          return (_context.seasonsModels?.Any(e => e.Seasonid == id)).GetValueOrDefault();
         }
     }
 }

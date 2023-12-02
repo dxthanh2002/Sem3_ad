@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/Account/OnPostLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxPblBvc3RMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ASP.net/Sem3_ad/WebApplication1/Views/AgesModels/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWdlc01vZGVsc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -144,24 +148,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdE1vZGVsc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Sem3_ad/WebApplication1/Views/seasonsModels/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2Vhc29uc01vZGVsc1xDcmVhdGUuY3NodG1s
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/SeasonModels/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vhc29uTW9kZWxzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Sem3_ad/WebApplication1/Views/seasonsModels/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2Vhc29uc01vZGVsc1xEZWxldGUuY3NodG1s
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/SeasonModels/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vhc29uTW9kZWxzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Sem3_ad/WebApplication1/Views/seasonsModels/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2Vhc29uc01vZGVsc1xEZXRhaWxzLmNzaHRtbA==
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/SeasonModels/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vhc29uTW9kZWxzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Sem3_ad/WebApplication1/Views/seasonsModels/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2Vhc29uc01vZGVsc1xFZGl0LmNzaHRtbA==
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/SeasonModels/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vhc29uTW9kZWxzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.net/Sem3_ad/WebApplication1/Views/seasonsModels/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2Vhc29uc01vZGVsc1xJbmRleC5jc2h0bWw=
+[D:/ASP.net/Sem3_ad/WebApplication1/Views/SeasonModels/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Vhc29uTW9kZWxzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ASP.net/Sem3_ad/WebApplication1/Views/Shared/Error.cshtml]

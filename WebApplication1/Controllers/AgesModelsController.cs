@@ -21,20 +21,20 @@ namespace WebApplication1.Controllers
         // GET: AgesModels
         public async Task<IActionResult> Index()
         {
-              return _context.AgesModel != null ? 
-                          View(await _context.AgesModel.ToListAsync()) :
-                          Problem("Entity set 'FashionContext.AgesModel'  is null.");
+              return _context.AgesModels != null ? 
+                          View(await _context.AgesModels.ToListAsync()) :
+                          Problem("Entity set 'FashionContext.AgesModels'  is null.");
         }
 
         // GET: AgesModels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.AgesModel == null)
+            if (id == null || _context.AgesModels == null)
             {
                 return NotFound();
             }
 
-            var agesModel = await _context.AgesModel
+            var agesModel = await _context.AgesModels
                 .FirstOrDefaultAsync(m => m.agesid == id);
             if (agesModel == null)
             {
@@ -69,12 +69,12 @@ namespace WebApplication1.Controllers
         // GET: AgesModels/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.AgesModel == null)
+            if (id == null || _context.AgesModels == null)
             {
                 return NotFound();
             }
 
-            var agesModel = await _context.AgesModel.FindAsync(id);
+            var agesModel = await _context.AgesModels.FindAsync(id);
             if (agesModel == null)
             {
                 return NotFound();
@@ -120,12 +120,12 @@ namespace WebApplication1.Controllers
         // GET: AgesModels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.AgesModel == null)
+            if (id == null || _context.AgesModels == null)
             {
                 return NotFound();
             }
 
-            var agesModel = await _context.AgesModel
+            var agesModel = await _context.AgesModels
                 .FirstOrDefaultAsync(m => m.agesid == id);
             if (agesModel == null)
             {
@@ -140,14 +140,14 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.AgesModel == null)
+            if (_context.AgesModels == null)
             {
-                return Problem("Entity set 'FashionContext.AgesModel'  is null.");
+                return Problem("Entity set 'FashionContext.AgesModels'  is null.");
             }
-            var agesModel = await _context.AgesModel.FindAsync(id);
+            var agesModel = await _context.AgesModels.FindAsync(id);
             if (agesModel != null)
             {
-                _context.AgesModel.Remove(agesModel);
+                _context.AgesModels.Remove(agesModel);
             }
             
             await _context.SaveChangesAsync();
@@ -156,7 +156,7 @@ namespace WebApplication1.Controllers
 
         private bool AgesModelExists(int id)
         {
-          return (_context.AgesModel?.Any(e => e.agesid == id)).GetValueOrDefault();
+          return (_context.AgesModels?.Any(e => e.agesid == id)).GetValueOrDefault();
         }
     }
 }

@@ -21,8 +21,9 @@ namespace WebApplication1.Controllers
         // GET: OrderModels
         public async Task<IActionResult> Index()
         {
-            var fashionContext = _context.Orders.Include(o => o.User);
-            return View(await fashionContext.ToListAsync());
+              return _context.Orders != null ? 
+                          View(await _context.Orders.ToListAsync()) :
+                          Problem("Entity set 'FashionContext.Orders'  is null.");
         }
 
         // GET: OrderModels/Details/5
@@ -34,7 +35,6 @@ namespace WebApplication1.Controllers
             }
 
             var orderModel = await _context.Orders
-                .Include(o => o.User)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (orderModel == null)
             {
@@ -47,7 +47,6 @@ namespace WebApplication1.Controllers
         // GET: OrderModels/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Email");
             return View();
         }
 
@@ -64,7 +63,6 @@ namespace WebApplication1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Email", orderModel.UserId);
             return View(orderModel);
         }
 
@@ -81,7 +79,6 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Email", orderModel.UserId);
             return View(orderModel);
         }
 
@@ -117,7 +114,6 @@ namespace WebApplication1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Email", orderModel.UserId);
             return View(orderModel);
         }
 
@@ -130,7 +126,6 @@ namespace WebApplication1.Controllers
             }
 
             var orderModel = await _context.Orders
-                .Include(o => o.User)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
             if (orderModel == null)
             {

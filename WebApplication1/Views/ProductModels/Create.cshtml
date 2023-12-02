@@ -14,41 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <div>
-                    <input asp-for="Name" class="form-control" id="name" style="position:relative" onblur="hideDiv()" onfocus="showDiv()" autocomplete="off" />
-                    <div style="background:#fff;z-index:2;position:absolute;width: 50%;display:none" id="idDivName">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Stt</th>
-                                    <th>col 1</th>
-                                    <th>col 2</th>
-                                    <th>col 3</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                                <tr>
-                                    <td>1</td>
-                                    <td>row 1.1</td>
-                                    <td>row 1.2</td>
-                                    <td>row 1.3</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>row 2.1</td>
-                                    <td>row 2.2</td>
-                                    <td>row 2.3</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>row 3.1</td>
-                                    <td>row 3.2</td>
-                                    <td>row 3.3</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -75,9 +41,8 @@
                 <select asp-for="GendersId" class ="form-control" asp-items="ViewBag.GendersId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Ages" class="control-label"></label>
-                <input asp-for="Ages" class="form-control" />
-                <span asp-validation-for="Ages" class="text-danger"></span>
+                <label asp-for="Age" class="control-label"></label>
+                <select asp-for="Age" class ="form-control" asp-items="ViewBag.Age"></select>
             </div>
             <div class="form-group">
                 <label asp-for="RewardPoint" class="control-label"></label>
@@ -94,31 +59,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-<script>
-    // Function to show the div when input is focused
-    function showDiv() {
-        var div = document.getElementById("idDivName");
-        div.style.display = 'block';
-    }
 
-
-    function hideDiv() {
-        var div = document.getElementById("idDivName");
-        div.style.display = 'none';
-    }
-
-    var rows = document.getElementById('tableBody').getElementsByTagName('tr');
-    for (var i = 0; i < rows.length; i++) {
-        rows[i].addEventListener('click', function () {
-            handleRowClick(this);
-        });
-    }
-
-    // Function to handle row click
-    function handleRowClick(row) {
-        alert('Clicked row ' + row.cells[0].innerText); // Example action, you can replace this with your desired action
-    }
-</script>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
