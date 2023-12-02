@@ -6,8 +6,9 @@ namespace WebApplication1.Models
     public class AgesModel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int agesid { get; set; }
+        [Required]
+        [StringLength(50)]
         public string agenumber { get; set; }
         
     }

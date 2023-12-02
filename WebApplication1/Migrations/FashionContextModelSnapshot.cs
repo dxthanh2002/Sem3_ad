@@ -31,11 +31,12 @@ namespace WebApplication1.Migrations
 
                     b.Property<string>("agenumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("agesid");
 
-                    b.ToTable("AgesModel");
+                    b.ToTable("AgesModels");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.DetailOrderModel", b =>
@@ -64,7 +65,7 @@ namespace WebApplication1.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("DetailOrder", (string)null);
+                    b.ToTable("DetailOrders");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.GendersModel", b =>
@@ -75,13 +76,14 @@ namespace WebApplication1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Genderid"));
 
-                    b.Property<string>("gender")
+                    b.Property<string>("Gender")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Genderid");
 
-                    b.ToTable("GendersModel");
+                    b.ToTable("GendersModels");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.OrderModel", b =>
@@ -99,11 +101,14 @@ namespace WebApplication1.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<int>("UsersUserId")
+                        .HasColumnType("int");
+
                     b.HasKey("OrderId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UsersUserId");
 
-                    b.ToTable("Order", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.ProductModel", b =>
@@ -114,7 +119,7 @@ namespace WebApplication1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
-                    b.Property<int>("Ages")
+                    b.Property<int>("Age")
                         .HasColumnType("int");
 
                     b.Property<int>("GendersId")
@@ -137,21 +142,36 @@ namespace WebApplication1.Migrations
                     b.Property<float>("RewardPoint")
                         .HasColumnType("real");
 
-                    b.Property<int>("agesid")
-                        .HasColumnType("int");
-
                     b.Property<int>("seasonid")
                         .HasColumnType("int");
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("GendersId");
+                    b.HasIndex("Age");
 
-                    b.HasIndex("agesid");
+                    b.HasIndex("GendersId");
 
                     b.HasIndex("seasonid");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.SeasonModel", b =>
+                {
+                    b.Property<int>("Seasonid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Seasonid"));
+
+                    b.Property<string>("Season")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Seasonid");
+
+                    b.ToTable("seasonsModels");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.UserModel", b =>
@@ -179,24 +199,7 @@ namespace WebApplication1.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users", (string)null);
-                });
-
-            modelBuilder.Entity("WebApplication1.Models.seasonsModel", b =>
-                {
-                    b.Property<int>("seasonId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("seasonId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("seasonId");
-
-                    b.ToTable("seasonsModel");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.DetailOrderModel", b =>
@@ -220,36 +223,36 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Models.OrderModel", b =>
                 {
-                    b.HasOne("WebApplication1.Models.UserModel", "User")
+                    b.HasOne("WebApplication1.Models.UserModel", "Users")
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("UsersUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.ProductModel", b =>
                 {
+                    b.HasOne("WebApplication1.Models.AgesModel", "Ages")
+                        .WithMany()
+                        .HasForeignKey("Age")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("WebApplication1.Models.GendersModel", "Genders")
                         .WithMany()
                         .HasForeignKey("GendersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebApplication1.Models.AgesModel", "Age")
-                        .WithMany()
-                        .HasForeignKey("agesid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebApplication1.Models.seasonsModel", "Seasons")
+                    b.HasOne("WebApplication1.Models.SeasonModel", "Seasons")
                         .WithMany()
                         .HasForeignKey("seasonid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Age");
+                    b.Navigation("Ages");
 
                     b.Navigation("Genders");
 

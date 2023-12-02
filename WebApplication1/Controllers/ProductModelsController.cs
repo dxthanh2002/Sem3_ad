@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
         // GET: ProductModels
         public async Task<IActionResult> Index()
         {
-            var fashionContext = _context.Products.Include(p => p.Genders).Include(p => p.Seasons);
+            var fashionContext = _context.Products.Include(p => p.Ages).Include(p => p.Genders).Include(p => p.Seasons);
             return View(await fashionContext.ToListAsync());
         }
 
@@ -34,6 +34,7 @@ namespace WebApplication1.Controllers
             }
 
             var productModel = await _context.Products
+                .Include(p => p.Ages)
                 .Include(p => p.Genders)
                 .Include(p => p.Seasons)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
@@ -48,8 +49,9 @@ namespace WebApplication1.Controllers
         // GET: ProductModels/Create
         public IActionResult Create()
         {
-            ViewData["GendersId"] = new SelectList(_context.GendersModel, "Genderid", "gender");
-            ViewData["seasonid"] = new SelectList(_context.seasonsModel, "seasonId", "seasonId");
+            ViewData["Age"] = new SelectList(_context.AgesModels, "agesid", "agenumber");
+            ViewData["GendersId"] = new SelectList(_context.GendersModels, "Genderid", "Gender");
+            ViewData["seasonid"] = new SelectList(_context.seasonsModels, "Seasonid", "Season");
             return View();
         }
 
@@ -58,7 +60,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,Name,Images,Price,Quantity,seasonid,GendersId,Ages,RewardPoint")] ProductModel productModel)
+        public async Task<IActionResult> Create([Bind("ProductId,Name,Images,Price,Quantity,seasonid,GendersId,Age,RewardPoint")] ProductModel productModel)
         {
             if (ModelState.IsValid)
             {
@@ -66,8 +68,9 @@ namespace WebApplication1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GendersId"] = new SelectList(_context.GendersModel, "Genderid", "gender", productModel.GendersId);
-            ViewData["seasonid"] = new SelectList(_context.seasonsModel, "seasonId", "seasonId", productModel.seasonid);
+            ViewData["Age"] = new SelectList(_context.AgesModels, "agesid", "agenumber", productModel.Age);
+            ViewData["GendersId"] = new SelectList(_context.GendersModels, "Genderid", "Gender", productModel.GendersId);
+            ViewData["seasonid"] = new SelectList(_context.seasonsModels, "Seasonid", "Season", productModel.seasonid);
             return View(productModel);
         }
 
@@ -84,8 +87,9 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            ViewData["GendersId"] = new SelectList(_context.GendersModel, "Genderid", "gender", productModel.GendersId);
-            ViewData["seasonid"] = new SelectList(_context.seasonsModel, "seasonId", "seasonId", productModel.seasonid);
+            ViewData["Age"] = new SelectList(_context.AgesModels, "agesid", "agenumber", productModel.Age);
+            ViewData["GendersId"] = new SelectList(_context.GendersModels, "Genderid", "Gender", productModel.GendersId);
+            ViewData["seasonid"] = new SelectList(_context.seasonsModels, "Seasonid", "Season", productModel.seasonid);
             return View(productModel);
         }
 
@@ -94,7 +98,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,Images,Price,Quantity,seasonid,GendersId,Ages,RewardPoint")] ProductModel productModel)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,Images,Price,Quantity,seasonid,GendersId,Age,RewardPoint")] ProductModel productModel)
         {
             if (id != productModel.ProductId)
             {
@@ -121,8 +125,9 @@ namespace WebApplication1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GendersId"] = new SelectList(_context.GendersModel, "Genderid", "gender", productModel.GendersId);
-            ViewData["seasonid"] = new SelectList(_context.seasonsModel, "seasonId", "seasonId", productModel.seasonid);
+            ViewData["Age"] = new SelectList(_context.AgesModels, "agesid", "agenumber", productModel.Age);
+            ViewData["GendersId"] = new SelectList(_context.GendersModels, "Genderid", "Gender", productModel.GendersId);
+            ViewData["seasonid"] = new SelectList(_context.seasonsModels, "Seasonid", "Season", productModel.seasonid);
             return View(productModel);
         }
 
@@ -135,6 +140,7 @@ namespace WebApplication1.Controllers
             }
 
             var productModel = await _context.Products
+                .Include(p => p.Ages)
                 .Include(p => p.Genders)
                 .Include(p => p.Seasons)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
