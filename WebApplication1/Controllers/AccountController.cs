@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text.Json;
 using WebApplication1.entity;
@@ -23,9 +24,9 @@ namespace WebApplication1.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-              return _context.Users != null ? 
-                          View(await _context.Users.ToListAsync()) :
-                          Problem("Entity set 'FashionContext.Users'  is null.");
+            return _context.Users != null ?
+                        View(await _context.Users.ToListAsync()) :
+                        Problem("Entity set 'FashionContext.Users'  is null.");
         }
 
         // GET: Account/Details/5
@@ -153,23 +154,28 @@ namespace WebApplication1.Controllers
             {
                 _context.Users.Remove(userModel);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UserModelExists(string id)
         {
-          return (_context.Users?.Any(e => e.Username == id)).GetValueOrDefault();
+            return (_context.Users?.Any(e => e.Username == id)).GetValueOrDefault();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> OnPostLogin()
+        {
+            return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> OnPostLogin(string username, string password, string ReturnUrl)
         {
             UserModel u = _context.Users.FirstOrDefault(x => x.Username == username);
-            if (u != null)
+            if (u != null && BCrypt.Net.BCrypt.Verify(password, u.Password))
             {
-
                 var claims = new List<Claim>
                 {
                     new Claim("User", JsonSerializer.Serialize(u)),
@@ -182,14 +188,77 @@ namespace WebApplication1.Controllers
                 });
 
                 _context.SaveChanges();
-                return ReturnUrl == null ? Redirect("./Home") : Redirect(ReturnUrl);
+                return ReturnUrl == null ? Redirect("../Home") : Redirect(ReturnUrl);
             }
             else
             {
+                ViewBag.Message = "Tài khoản hoặc mật khẩu không chính xác";
                 return View();
 
             }
         }
 
-    }
+        [HttpGet]
+        public async Task<IActionResult> register()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction(nameof(OnPostLogin));
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> register(string username, string password, string confirmPassword, string email)
+        {
+
+                if (string.IsNullOrEmpty(username))
+                {
+                    ViewBag.Message = "Vui lòng nhập username";
+                    return View();
+                }
+                else if (string.IsNullOrEmpty(email))
+                {
+                    ViewBag.Message = "Vui lòng nhập email";
+                    return View();
+
+                }
+                else if (string.IsNullOrEmpty(password))
+                {
+                    ViewBag.Message = "Vui lòng nhập password";
+                    return View();
+
+                }
+                else if (string.IsNullOrEmpty(confirmPassword))
+                {
+                    ViewBag.Message = "Vui lòng nhập lại mật khẩu.";
+                    return View();
+
+                }
+                else if (password.Equals(confirmPassword) == false)
+                {
+                    ViewBag.Message = "Mật khẩu và xác nhận mật khẩu không trùng khớp.";
+                    return View();
+                }
+                UserModel userModel = new UserModel();
+                userModel.Username = username;
+                userModel.Email = email;
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(userModel.Password);
+                userModel.Password = hashedPassword;
+                userModel.RewardPoint = 0;
+                _context.Add(userModel);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(OnPostLogin));
+
+        }
+
+
+
+}
 }

@@ -46,6 +46,28 @@
                     </ul>
                 </div>
             </div>
+            @{
+                if (User.Identity.IsAuthenticated)
+                {
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Tài khoản
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a href="/Account/Logout">Đăng xuất</a></li>
+                            <li><a href="#">Thông tin tài khoản</a></li>
+                        </ul>
+                    </div>
+                 
+                }
+                else
+                {
+                    <span>
+                        <a href="/Account/OnPostLogin">Đăng nhập</a> |
+                        <a href="/Account/register">Đăng ký</a>
+                    </span>
+                }
+            }
         </nav>
     </header>
     <div class="container">
