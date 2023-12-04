@@ -62,16 +62,9 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,Name,Images,Price,Quantity,seasonid,GendersId,Age,RewardPoint")] ProductModel productModel)
         {
-            if (ModelState.IsValid)
-            {
                 _context.Add(productModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["Age"] = new SelectList(_context.AgesModels, "agesid", "agenumber", productModel.Age);
-            ViewData["GendersId"] = new SelectList(_context.GendersModels, "Genderid", "Gender", productModel.GendersId);
-            ViewData["seasonid"] = new SelectList(_context.seasonsModels, "Seasonid", "Season", productModel.seasonid);
-            return View(productModel);
         }
 
         // GET: ProductModels/Edit/5
@@ -105,8 +98,7 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            
                 try
                 {
                     _context.Update(productModel);
@@ -124,11 +116,8 @@ namespace WebApplication1.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["Age"] = new SelectList(_context.AgesModels, "agesid", "agenumber", productModel.Age);
-            ViewData["GendersId"] = new SelectList(_context.GendersModels, "Genderid", "Gender", productModel.GendersId);
-            ViewData["seasonid"] = new SelectList(_context.seasonsModels, "Seasonid", "Season", productModel.seasonid);
-            return View(productModel);
+            
+
         }
 
         // GET: ProductModels/Delete/5
